@@ -3,7 +3,7 @@
 namespace Webdk\Admin;
 
 use Illuminate\Support\ServiceProvider;
-use Webdk\Admin\Commands\AdminCommand;
+use Webdk\Admin\Commands\AdminCreateCommand;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -18,7 +18,7 @@ class AdminServiceProvider extends ServiceProvider
                 __DIR__ . '/../resources/views' => base_path('resources/views/vendor/admin'),
             ], 'views');
 
-            $migrationFileName = 'create_admin_table.php';
+            $migrationFileName = 'create_admins_table.php';
             if (! $this->migrationFileExists($migrationFileName)) {
                 $this->publishes([
                     __DIR__ . "/../database/migrations/{$migrationFileName}.stub" => database_path('migrations/' . date('Y_m_d_His', time()) . '_' . $migrationFileName),
@@ -26,16 +26,16 @@ class AdminServiceProvider extends ServiceProvider
             }
 
             $this->commands([
-                AdminCommand::class,
+                AdminCreateCommand::class,
             ]);
         }
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'admin');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'webdk_admin');
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/admin.php', 'admin');
+        $this->mergeConfigFrom(__DIR__ . '/../config/admin.php', 'webdk_admin');
     }
 
     public static function migrationFileExists(string $migrationFileName): bool
