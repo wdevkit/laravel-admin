@@ -1,10 +1,5 @@
 # Admin scafolding for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v//admin.svg?style=flat-square)](https://packagist.org/packages//admin)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status//admin/run-tests?label=tests)](https://github.com//admin/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt//admin.svg?style=flat-square)](https://packagist.org/packages//admin)
-
-
 This package allows you to scafold a simple _admin_ structure to your application.
 
 ## Support us
@@ -16,7 +11,7 @@ This package allows you to scafold a simple _admin_ structure to your applicatio
 You can install the package via composer:
 
 ```bash
-composer require wdevkit/admin
+composer require wdevkit/laravel-admin
 ```
 
 You can publish and run the migrations with:
