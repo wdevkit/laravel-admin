@@ -1,10 +1,10 @@
 {
     "name": "wdevkit/laravel-admin",
-    "description": "Admin scafolding for Laravel",
+    "description": "Admin scaffolding for Laravel",
     "keywords": [
         "laravel",
         "admin",
-        "scafolding"
+        "scaffolding"
     ],
     "homepage": "https://github.com/wdevkit/laravel-admin",
     "license": "MIT",

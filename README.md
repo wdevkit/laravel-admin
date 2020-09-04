@@ -1,4 +1,4 @@
-# Admin scafolding for Laravel
+# Admin scaffolding for Laravel
 
 This package allows you to scafold a simple _admin_ structure to your application.
 
@@ -53,7 +53,7 @@ Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
 ## Security
 
-If you discover any security related issues, please email wdarking@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email wdevkit@gmail.com instead of using the issue tracker.
 
 ## Credits
 
