@@ -1,6 +1,6 @@
 <?php
 
-namespace Webdk\Admin\Models;
+namespace Wdevkit\Admin\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;

@@ -1,11 +1,12 @@
 {
-    "name": "webdk/admin",
+    "name": "wdevkit/laravel-admin",
     "description": "Admin scafolding for Laravel",
     "keywords": [
+        "laravel",
         "admin",
         "scafolding"
     ],
-    "homepage": "https://github.com/webdk/admin",
+    "homepage": "https://github.com/wdevkit/laravel-admin",
     "license": "MIT",
     "authors": [
         {
@@ -27,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Webdk\\Admin\\": "src"
+            "Wdevkit\\Admin\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Webdk\\Admin\\Tests\\": "tests"
+            "Wdevkit\\Admin\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Webdk\\Admin\\AdminServiceProvider"
+                "Wdevkit\\Admin\\AdminServiceProvider"
             ],
             "aliases": {
-                "Admin": "Webdk\\Admin\\AdminFacade"
+                "Admin": "Wdevkit\\Admin\\AdminFacade"
             }
         }
     },

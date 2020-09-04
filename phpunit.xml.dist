@@ -11,7 +11,7 @@
          verbose="true"
 >
     <testsuites>
-        <testsuite name="Webdk Test Suite">
+        <testsuite name="Wdevkit Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

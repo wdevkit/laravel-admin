@@ -1,9 +1,9 @@
 <?php
 
-namespace Webdk\Admin\Tests;
+namespace Wdevkit\Admin\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Webdk\Admin\AdminServiceProvider;
+use Wdevkit\Admin\AdminServiceProvider;
 
 class TestCase extends Orchestra
 {

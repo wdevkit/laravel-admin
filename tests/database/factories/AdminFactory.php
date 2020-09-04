@@ -2,7 +2,7 @@
 
 use \Faker\Generator;
 use Illuminate\Support\Str;
-use Webdk\Admin\Models\Admin;
+use Wdevkit\Admin\Models\Admin;
 
 /* @var Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(Admin::class, function (Generator $faker) {

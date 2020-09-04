@@ -1,11 +1,11 @@
 <?php
 
-namespace Webdk\Admin;
+namespace Wdevkit\Admin;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Webdk\Admin\Admin
+ * @see \Wdevkit\Admin\Admin
  */
 class AdminFacade extends Facade
 {

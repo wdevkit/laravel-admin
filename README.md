@@ -16,19 +16,19 @@ This package allows you to scafold a simple _admin_ structure to your applicatio
 You can install the package via composer:
 
 ```bash
-composer require webdk/admin
+composer require wdevkit/admin
 ```
 
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="Webdk\Admin\AdminServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="Wdevkit\Admin\AdminServiceProvider" --tag="migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Webdk\Admin\AdminServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Wdevkit\Admin\AdminServiceProvider" --tag="config"
 ```
 
 This is the contents of the published config file:

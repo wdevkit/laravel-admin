@@ -1,9 +1,9 @@
 <?php
 
-namespace Webdk\Admin;
+namespace Wdevkit\Admin;
 
 use Illuminate\Support\ServiceProvider;
-use Webdk\Admin\Commands\AdminCreateCommand;
+use Wdevkit\Admin\Commands\AdminCreateCommand;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -30,12 +30,12 @@ class AdminServiceProvider extends ServiceProvider
             ]);
         }
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'webdk_admin');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'wdevkit_admin');
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/admin.php', 'webdk_admin');
+        $this->mergeConfigFrom(__DIR__ . '/../config/admin.php', 'wdevkit_admin');
     }
 
     public static function migrationFileExists(string $migrationFileName): bool

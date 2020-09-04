@@ -1,6 +1,6 @@
 <?php
 
-namespace Webdk\Admin\Tests;
+namespace Wdevkit\Admin\Tests;
 
 class ExampleTest extends TestCase
 {

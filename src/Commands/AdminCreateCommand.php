@@ -1,8 +1,8 @@
 <?php
 
-namespace Webdk\Admin\Commands;
+namespace Wdevkit\Admin\Commands;
 
-use Webdk\Admin\Models\Admin;
+use Wdevkit\Admin\Models\Admin;
 use Illuminate\Console\Command;
 
 class AdminCreateCommand extends Command

@@ -1,8 +1,8 @@
 <?php
 
-namespace Webdk\Admin\Tests\Commands;
+namespace Wdevkit\Admin\Tests\Commands;
 
-use Webdk\Admin\Tests\TestCase;
+use Wdevkit\Admin\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AdminCreateCommandTest extends TestCase
