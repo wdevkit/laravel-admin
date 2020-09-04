@@ -35,7 +35,45 @@ return [
 
 ## Usage
 
-- todo
+After publishing the migrations, the model `Wdevkit\Admin\Models\Admin::class` will be available. You can use this model to define a new user provider in the `config/auth.php` file:
+
+```php
+return [
+
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,
+        ],
+
+        // new user provider
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => Webdk\Admin\Models\Admin::class,
+        ],
+    ],
+];
+```
+
+By creating the `admins` user provider, you can use it in your _guards_ (web, api) or you can create a new _guard_ which uses the _admins_ user provider in the `config/auth.php` file:
+
+```php
+return [
+
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'admins', // you can update the `web` guard to use the `admins` user provider
+        ],
+
+        // or you can create your own `guard` with the `admins` user provider.
+        'web_admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ]
+    ],
+];
+```
 
 ## Testing
 
