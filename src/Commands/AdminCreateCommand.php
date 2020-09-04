@@ -34,15 +34,11 @@ class AdminCreateCommand extends Command
             return;
         }
 
-        $admin = [
+        Admin::create([
             'name' => $name,
             'email' => $email,
             'password' => \Illuminate\Support\Facades\Hash::make($password)
-        ];
-
-        // dd($admin);
-
-        Admin::create($admin);
+        ]);
 
         $this->info('Admin created successfully.');
     }
