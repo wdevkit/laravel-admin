@@ -26,6 +26,16 @@ You can publish the config file with:
 php artisan vendor:publish --provider="Wdevkit\Admin\AdminServiceProvider" --tag="config"
 ```
 
+You can publish the routes file with:
+```bash
+php artisan vendor:publish --provider="Wdevkit\Admin\AdminServiceProvider" --tag="routes"
+```
+
+You can publish the views files with:
+```bash
+php artisan vendor:publish --provider="Wdevkit\Admin\AdminServiceProvider" --tag="views"
+```
+
 This is the contents of the published config file:
 
 ```php
@@ -73,6 +83,46 @@ return [
         ]
     ],
 ];
+```
+
+When using the auth structure with the `web_admin` guard, you should also update the `app/Http/Middleware/Authenticate.php` middleware to correctly redirect the request to the admin login route, by updating the `redirectTo` method:
+
+```php
+protected function redirectTo($request)
+{
+    if (! $request->expectsJson()) {
+
+        // ensure it will redirect to correct login route.
+        if ($request->is('admin/*')) {
+            return route('wdevkit_admin.login');
+        }
+
+        return route('login');
+    }
+}
+```
+
+And also update the method `handle` on the `app/Http/Middleware/RedirectIfAuthenticated.php` middleware to correctly redirect to the admin home page when already authenticated:
+
+```php
+public function handle($request, Closure $next, ...$guards)
+{
+    $guards = empty($guards) ? [null] : $guards;
+
+    foreach ($guards as $guard) {
+        if (Auth::guard($guard)->check()) {
+
+            // redirect to /admin/home when guard is web_admin
+            if ($guard == 'web_admin') {
+                return redirect('/admin/home');
+            }
+
+            return redirect(RouteServiceProvider::HOME);
+        }
+    }
+
+    return $next($request);
+}
 ```
 
 ## Testing
