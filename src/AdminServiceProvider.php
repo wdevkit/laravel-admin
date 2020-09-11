@@ -20,7 +20,7 @@ class AdminServiceProvider extends ServiceProvider
             ], 'routes');
 
             $this->publishes([
-                __DIR__ . '/../resources/views' => base_path('resources/views/vendor/admin'),
+                __DIR__ . '/../resources/views' => base_path('resources/views/vendor/wdevkit_admin'),
             ], 'views');
 
             $migrationFileName = 'create_admins_table.php';
@@ -66,6 +66,10 @@ class AdminServiceProvider extends ServiceProvider
     {
         Route::prefix('admin')
             ->middleware('web')
-            ->group(__DIR__ . '/../routes/admin.php');
+            ->group(
+                file_exists(base_path('routes/admin.php'))
+                ? base_path('routes/admin.php')
+                : __DIR__ . '/../routes/admin.php'
+            );
     }
 }
