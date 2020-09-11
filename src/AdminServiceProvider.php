@@ -2,6 +2,7 @@
 
 namespace Wdevkit\Admin;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Wdevkit\Admin\Commands\AdminCreateCommand;
 
@@ -13,6 +14,10 @@ class AdminServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../config/admin.php' => config_path('admin.php'),
             ], 'config');
+
+            $this->publishes([
+                __DIR__.'/../routes/admin.php' => base_path('routes/admin.php')
+            ], 'routes');
 
             $this->publishes([
                 __DIR__ . '/../resources/views' => base_path('resources/views/vendor/admin'),
@@ -29,6 +34,8 @@ class AdminServiceProvider extends ServiceProvider
                 AdminCreateCommand::class,
             ]);
         }
+
+        $this->registerRoutes();
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'wdevkit_admin');
     }
@@ -48,5 +55,17 @@ class AdminServiceProvider extends ServiceProvider
         }
 
         return false;
+    }
+
+    /**
+     * Register the admin routes.
+     *
+     * @return void
+     */
+    protected function registerRoutes()
+    {
+        Route::prefix('admin')
+            ->middleware('web')
+            ->group(__DIR__ . '/../routes/admin.php');
     }
 }
