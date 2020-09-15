@@ -1,10 +1,7 @@
+
 # Admin scaffolding for Laravel
 
-This package allows you to scafold a simple _admin_ structure to your application.
-
-## Support us
-
-- todo
+This package allows you to scafold a simple _admin_ structure to your application. It's Laravel 8 compatible!
 
 ## Installation
 
@@ -44,6 +41,23 @@ return [
 ```
 
 ## Usage
+
+### Create Admin
+
+To create a admin user, you can use the `admin:create` command.
+
+```bash
+php artisan admin:create
+```
+You will be asked to input a admin name, email, password and password confirmation. Alternatively, you can use the one line command to input all the required arguments:
+
+```bash
+php artisan admin:create "John Doe" johndoe@email.test 1234 1234
+```
+
+### Guard & User provider Structure
+
+
 
 After publishing the migrations, the model `Wdevkit\Admin\Models\Admin::class` will be available. You can use this model to define a new user provider in the `config/auth.php` file:
 
@@ -124,6 +138,34 @@ public function handle($request, Closure $next, ...$guards)
     return $next($request);
 }
 ```
+
+### Routing
+
+The `routes` publishing will create a `routes/admin.php` routes file in your application. You can use this admin routes file to tweak the package routes accordingly to your needs. In this routes file, you can override the packages controllers as you wish. If the admin routes is not published, the default admin routes file from the package will be used.
+
+```php
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::name('wdevkit_admin.')->group(function () {
+
+    Route::get('login', [\Wdevkit\Admin\Http\Controllers\LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('login', [\Wdevkit\Admin\Http\Controllers\LoginController::class, 'login'])->name('login_post');
+
+    Route::middleware('auth:web_admin')->group(function () {
+        Route::get('home', \Wdevkit\Admin\Http\Controllers\HomeController::class)->name('home');
+    });
+});
+
+// you can place any other routes in here
+```
+
+Any routes placed in this file will have the `/admin` prefix and the `web` middleware applied by default.
+
+### Views
+
+This package has its own view resources for the layout structure. You can override this files by publishing the `views` tag from the service provider. The package `views` files will be published in the `resources/views/vendor/wdevkit_admin` folder of your application.
 
 ## Testing
 
