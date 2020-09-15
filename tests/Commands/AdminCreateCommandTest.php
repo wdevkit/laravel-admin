@@ -12,10 +12,10 @@ class AdminCreateCommandTest extends TestCase
     public function testAdminCreateCommand()
     {
         $this->artisan('admin:create')
-             ->expectsQuestion('Admin name:', 'John Doe')
-             ->expectsQuestion('Admin email:', 'john@email.com')
-             ->expectsQuestion('Admin password:', '1234')
-             ->expectsQuestion('Admin password confirmation:', '1234')
+             ->expectsQuestion('Admin name', 'John Doe')
+             ->expectsQuestion('Admin email', 'john@email.com')
+             ->expectsQuestion('Admin password', '1234')
+             ->expectsQuestion('Admin password confirmation', '1234')
              ->expectsOutput("Admin created successfully.")
              ->assertExitCode(0);
 

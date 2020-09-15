@@ -14,19 +14,19 @@ class AdminCreateCommand extends Command
     public function handle()
     {
         if (! $name = $this->argument('name')) {
-            $name = $this->ask('Admin name:');
+            $name = $this->ask('Admin name');
         }
 
         if (! $email = $this->argument('email')) {
-            $email = $this->ask('Admin email:');
+            $email = $this->ask('Admin email');
         }
 
         if (! $password = $this->argument('password')) {
-            $password = $this->secret('Admin password:');
+            $password = $this->secret('Admin password');
         }
 
         if (! $passwordConfirmation = $this->argument('password_confirmation')) {
-            $passwordConfirmation = $this->secret('Admin password confirmation:');
+            $passwordConfirmation = $this->secret('Admin password confirmation');
         }
 
         if ($password !== $passwordConfirmation) {
