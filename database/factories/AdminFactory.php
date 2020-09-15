@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories;
+namespace Wdevkit\Database\Factories;
 
 use Illuminate\Support\Str;
 use Wdevkit\Admin\Models\Admin;

@@ -58,7 +58,7 @@ class TestCase extends Orchestra
     public function asAdmin(Admin $admin = null, $guard = 'web_admin')
     {
         if (!$admin) {
-            $admin = \Database\Factories\AdminFactory::new()->create();
+            $admin = \Wdevkit\Database\Factories\AdminFactory::new()->create();
         }
 
         return $this->actingAs($admin, $guard);

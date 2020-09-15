@@ -29,7 +29,7 @@
     "autoload": {
         "psr-4": {
             "Wdevkit\\Admin\\": "src",
-            "Database\\Factories\\": "database/factories/"
+            "Wdevkit\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {

@@ -15,7 +15,7 @@ class AdminLoginControllerTest extends TestCase
 
     public function testPostAdminLoginRouteAuthenticatesAdmin()
     {
-        $admin = \Database\Factories\AdminFactory::new()->create();
+        $admin = \Wdevkit\Database\Factories\AdminFactory::new()->create();
 
         $this->post(route('wdevkit_admin.login'), [
             'email' => $admin->email,
@@ -27,7 +27,7 @@ class AdminLoginControllerTest extends TestCase
 
     public function testPostAdminLoginRouteWithWrongCredentials()
     {
-        $admin = \Database\Factories\AdminFactory::new()->create();
+        $admin = \Wdevkit\Database\Factories\AdminFactory::new()->create();
 
         $this->post(route('wdevkit_admin.login'), [
             'email' => $admin->email,
