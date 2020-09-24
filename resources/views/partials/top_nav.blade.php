@@ -6,7 +6,14 @@
     <input class="form-control form-control-dark w-100" type="text" placeholder="{{ __("Search") }}" aria-label="Search">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">{{ __("Sign out") }}</a>
+            <a class="nav-link" href="{{ route('wdevkit_admin.logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
         </li>
     </ul>
+    <form id="logout-form" action="{{ route('wdevkit_admin.logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 </nav>

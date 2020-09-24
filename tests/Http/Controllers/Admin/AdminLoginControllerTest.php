@@ -43,6 +43,23 @@ class AdminLoginControllerTest extends TestCase
 
         $this->asAdmin()->get(route('wdevkit_admin.login'))->assertRedirect(route('wdevkit_admin.home'));
     }
+
+    public function testPostAdminLogoutRouteUnauthenticatesAdmin()
+    {
+        $admin = \Wdevkit\Database\Factories\AdminFactory::new()->create();
+
+        $this->post(route('wdevkit_admin.login'), [
+            'email' => $admin->email,
+            'password' => 'password'
+        ])->assertRedirect(route('wdevkit_admin.home'));
+
+        $this->assertAuthenticatedAs($admin, 'web_admin');
+
+        $this->post(route('wdevkit_admin.logout'))
+            ->assertRedirect('/');
+
+        $this->assertGuest('web_admin');
+    }
 }
 
 class MockRedirectIfAuthenticated extends \Orchestra\Testbench\Http\Middleware\RedirectIfAuthenticated
